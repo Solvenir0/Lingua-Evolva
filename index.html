@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lingua Evolva</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="game-container">
+        <header>
+            <h1>Lingua Evolva</h1>
+            <p>Guide the evolution of communication from primal utterances to cosmic dialects.</p>
+        </header>
+
+        <!-- Resource Display -->
+        <div id="resources-bar">
+            <div class="resource-display">
+                <span class="resource-label">Cognition ($\Psi$):</span>
+                <span id="cognition-display" class="resource-value">0</span>
+                <span id="cognition-ps-display" class="resource-per-second">(+0/s)</span>
+            </div>
+            <div class="resource-display">
+                <span class="resource-label">Culture ($\Omega$):</span>
+                <span id="culture-display" class="resource-value">0</span>
+            </div>
+            <div class="resource-display">
+                 <span class="resource-label">Influence ($\Phi$):</span>
+                <span id="influence-display" class="resource-value">0</span>
+            </div>
+        </div>
+
+        <!-- Language Evolution Progress -->
+        <div id="language-advancement">
+            <h2 id="language-name-display">Primal Utterances</h2>
+            <div class="progress-bar-container">
+                <div id="language-progress-bar" style="width: 0%;"></div>
+            </div>
+            <p id="language-stage-display">Stage 1 of 5</p>
+        </div>
+
+        <!-- Main Interaction Area -->
+        <main id="main-content">
+            <div id="manual-cognition-area">
+                <button id="generate-cognition-btn">
+                    <span class="btn-main-text">Form a Thought</span>
+                    <span class="btn-sub-text" id="click-value-display">+1 $\Psi$</span>
+                </button>
+            </div>
+            
+            <div id="tabs">
+                <button class="tab-link active" onclick="openTab(event, 'Lexicon')">Lexicon</button>
+                <button class="tab-link" onclick="openTab(event, 'Phonology')">Phonology</button>
+                <button class="tab-link" onclick="openTab(event, 'Grammar')">Grammar</button>
+                <button class="tab-link" id="script-tab-button" onclick="openTab(event, 'Script')" disabled>Script</button>
+                <button class="tab-link" id="prestige-tab-button" onclick="openTab(event, 'Prestige')" disabled>Prestige</button>
+            </div>
+
+            <div id="upgrade-container">
+                <!-- Lexicon Tab -->
+                <div id="Lexicon" class="tab-content active">
+                    <h3>Lexicon (Vocabulary)</h3>
+                    <p>The foundation of thought. Each word increases base Cognition generation.</p>
+                    <div id="lexicon-upgrades" class="upgrades-grid"></div>
+                </div>
+
+                <!-- Phonology Tab -->
+                <div id="Phonology" class="tab-content">
+                    <h3>Phonology (Sound System)</h3>
+                    <p>Refine the sounds of the language. Multiplies Cognition generation.</p>
+                    <div id="phonology-upgrades" class="upgrades-grid"></div>
+                </div>
+
+                <!-- Grammar Tab -->
+                <div id="Grammar" class="tab-content">
+                    <h3>Grammar (Syntax)</h3>
+                    <p>Establish the rules of communication. Greatly multiplies Cognition generation.</p>
+                    <div id="grammar-upgrades" class="upgrades-grid"></div>
+                </div>
+
+                <!-- Script Tab -->
+                <div id="Script" class="tab-content">
+                    <h3>Script (Writing System)</h3>
+                    <p>Record knowledge. A monumental step that unlocks passive Culture generation.</p>
+                    <div id="script-upgrades" class="upgrades-grid"></div>
+                </div>
+
+                <!-- Prestige Tab -->
+                <div id="Prestige" class="tab-content">
+                    <h3>Language Mastery</h3>
+                    <p>Codify the language into a classic. This will reset your current language's progress in exchange for Culture ($\Omega$), which provides powerful permanent bonuses for all future languages.</p>
+                    <div id="prestige-area">
+                        <p>Culture to gain on Mastery: <span id="culture-gain-on-prestige">0</span> $\Omega$</p>
+                        <button id="prestige-btn" onclick="performPrestige()">Master the Language</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Message/Toast Notification -->
+    <div id="toast"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
